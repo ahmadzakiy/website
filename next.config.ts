@@ -1,11 +1,8 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  baseUrl: "src/",
-  paths: {
-    "@/components/*": ["components/*"],
-    "@/lib/*": ["lib/*"],
-  },
+  // Next.js configuration options go here
+  // Remove baseUrl and paths as they belong in tsconfig.json
 }
 
 export default nextConfig

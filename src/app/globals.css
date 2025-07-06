@@ -1,30 +1,61 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   /* --*: initial;  disabled all default value */
-  --color-background: #e9ecef;
-  --color-foreground: #ffffff;
-  --color-transparent: #14171caa;
+  
+  /* Light mode (default) */
+  --color-background: #f1f1f1;
+  --color-foreground: #22242C;
   --color-primary: #8df0cc;
-  --color-sage: #bcbd8b;
-  --color-dart-grren: #246637;
-  --color-black-olive: #252618;
-  --text-primary: #22242C;
+  
+  /* Semantic colors for light mode */
+  --color-card: #ffffff;
+  --color-card-foreground: #22242C;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #22242C;
+  --color-secondary: #f8f9fa;
+  --color-secondary-foreground: #22242C;
+  --color-muted: #f8f9fa;
+  --color-muted-foreground: #6c757d;
+  --color-accent: #f8f9fa;
+  --color-accent-foreground: #22242C;
+  --color-destructive: #dc3545;
+  --color-border: #dee2e6;
+  --color-input: #dee2e6;
+  --color-ring: #adb5bd;
+  
+  /* Radius */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
-
 .dark {
-  --color-background: #0b1012;
-  --color-foreground: #000000;
+  /* Dark mode overrides */
+  --color-background: #232323;
+  --color-foreground: #ecedee;
   --color-primary: #3bbd8d;
-  --text-primary: #ecedee;
-
+  
+  /* Semantic colors for dark mode */
+  --color-card: #1a1d21;
+  --color-card-foreground: #ecedee;
+  --color-popover: #1a1d21;
+  --color-popover-foreground: #ecedee;
+  --color-secondary: #2a2d31;
+  --color-secondary-foreground: #ecedee;
+  --color-muted: #2a2d31;
+  --color-muted-foreground: #9ca3af;
+  --color-accent: #2a2d31;
+  --color-accent-foreground: #ecedee;
+  --color-destructive: #ef4444;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.15);
+  --color-ring: #6b7280;
 }
 
 html,
@@ -34,15 +65,15 @@ body {
 }
 
 body {
-  /* color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-mono); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-mono;
   }
 }

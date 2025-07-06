@@ -6,11 +6,11 @@
 
 # Homepage
 ## About
-Ahmad Zakiy is a UX Engineer at a SaaS company in Jakarta, focused on building and scaling Design Systems that help teams craft better interfaces—faster.
+Ahmad Zakiy is UX Engineer at a Mekari, focused on building and scaling Design Systems that help teams craft better interfaces.
 
-He designs, codes, and obsessively tinkers with the bridge between design and engineering. When he’s not pushing pixels or components, he’s building tools for the people who build things.
+When he's not designing and coding, he's listening to hardcore/punk, thinking and exploring the world of AI.
 
-He’s based in Jakarta, where it’s currently probably raining or about to be 
+He's based in Jakarta, where it's currently 00:00:00.
 
 ## Posts
 **2024** 
@@ -70,6 +70,7 @@ GitHub: ahmadzakiy
 - https://pudding.cool/2018/02/waveforms/
 - https://yuanqing.github.io/create-figma-plugin/
 - https://www.dwinawan.com/basic-introduction
+- https://cognition.ai/blog/dont-build-multi-agents
 
 ## Websites
 - https://nissan-global.com/EN/HERITAGE_COLLECTION/skyline.html
