@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google"
+import Footer from "@/components/footer"
+import Navbar from "@/components/navbar"
 import "./globals.css"
 
 import { ThemeProvider } from "@/components/theme-provider"
@@ -51,7 +53,9 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

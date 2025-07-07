@@ -275,3 +275,11 @@ alwaysApply: true
 - Use the namespace keyword instead of the module keyword to declare TypeScript namespaces.
 - Make sure to use the digits argument with Number#toFixed().
 - Make sure to use the "use strict" directive in script files.
+
+### Figma MCP Rules
+- IMPORTANT: Always use components from `/path_to_your_design_system` when possible
+- Prioritize Figma fidelity to match designs exactly
+- Avoid hardcoded values, use design tokens from Figma where available
+- Follow WCAG requirements for accessibility
+- Add component documentation
+- Place UI components in `/path_to_your_design_system`; avoid inline styles unless truly necessary

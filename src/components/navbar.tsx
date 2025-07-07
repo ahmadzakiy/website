@@ -13,7 +13,7 @@ export default function Navbar() {
   const top = useTransform(scrollY, [0, 120], [16, 0])
   const left = useTransform(scrollY, [0, 120], [16, 0])
   const right = useTransform(scrollY, [0, 120], [16, 0])
-  const borderRadius = useTransform(scrollY, [0, 70], [9999, 0])
+  const borderRadius = useTransform(scrollY, [0, 60], [9999, 0])
   const maxWidth = useTransform(scrollY, [50, 200], [800, 9999]) // Start later, more gradual width change
   const paddingX = useTransform(scrollY, [0, 120], [16, 24])
   const shadowOpacity = useTransform(scrollY, [0, 80], [0.15, 0]) // Shadow fades out as it becomes sticky
@@ -36,19 +36,18 @@ export default function Navbar() {
     >
       <motion.div style={{ paddingLeft: paddingX, paddingRight: paddingX }}>
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link className="flex items-center" href="/">
             <Image
               alt="Ahmad Zakiy"
-              className="rounded-full"
+              className="flex-none rounded-full"
               height={40}
+              priority={true}
               src="/sijaki.jpg"
               width={40}
             />
           </Link>
 
-          {/* Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <ScrambleLink href="/" text="About" />
             <ScrambleLink href="/project" text="Project" />
             <ScrambleLink href="/notes" text="Notes" />

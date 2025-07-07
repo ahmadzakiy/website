@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
@@ -27,7 +26,6 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
   scrambledClassName,
   sequential = false,
   revealDirection = "start",
-  ...props
 }) => {
   const [displayText, setDisplayText] = useState(text)
   const [isHovering, setIsHovering] = useState(false)
@@ -177,11 +175,13 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
   ])
 
   return (
-    <motion.span
+    <button
       className={cn("inline-block whitespace-pre-wrap", className)}
-      onHoverEnd={() => setIsHovering(false)}
-      onHoverStart={() => setIsHovering(true)}
-      {...props}
+      onBlur={() => setIsHovering(false)}
+      onFocus={() => setIsHovering(true)}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      type="button"
     >
       <span className="sr-only">{displayText}</span>
       <span aria-hidden="true">
@@ -198,7 +198,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
           </span>
         ))}
       </span>
-    </motion.span>
+    </button>
   )
 }
 

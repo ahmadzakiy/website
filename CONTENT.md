@@ -71,6 +71,7 @@ GitHub: ahmadzakiy
 - https://yuanqing.github.io/create-figma-plugin/
 - https://www.dwinawan.com/basic-introduction
 - https://cognition.ai/blog/dont-build-multi-agents
+- https://ui.dev/why-react-query
 
 ## Websites
 - https://nissan-global.com/EN/HERITAGE_COLLECTION/skyline.html
