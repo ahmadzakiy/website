@@ -49,7 +49,8 @@ export default function RootLayout({
         className={cn(
           interSans.variable,
           instrumentSerif.variable,
-          geistMono.variable
+          geistMono.variable,
+          "relative z-10"
         )}
       >
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
