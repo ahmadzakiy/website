@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 import ScrambleHover from "../fancy/components/text/scramble-hover"
 
 interface ScrambleLinkProps {
@@ -27,7 +28,7 @@ export default function ScrambleLink({
   sequential = false,
   revealDirection = "start",
   useOriginalCharsOnly = false,
-  characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+",
+  characters = "01",
   scrambledClassName,
   ...props
 }: ScrambleLinkProps) {
@@ -35,7 +36,10 @@ export default function ScrambleLink({
     <Link href={href} {...props}>
       <ScrambleHover
         characters={characters}
-        className="cursor-pointer font-medium text-gray-900 text-sm transition-colors duration-200 hover:text-gray-600 sm:text-lg dark:text-white dark:hover:text-gray-300"
+        className={cn(
+          "cursor-pointer text-left text-gray-900 text-sm transition-colors duration-200 hover:text-gray-600 sm:text-lg dark:text-white dark:hover:text-gray-300",
+          className
+        )}
         maxIterations={maxIterations}
         revealDirection={revealDirection}
         scrambledClassName={scrambledClassName}

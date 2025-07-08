@@ -13,7 +13,7 @@ export const notesData: NotesData = {
   articles: [
     {
       href: "https://about.google/company-info/philosophy/",
-      title: "Ten things we know to be true",
+      title: "Ten Things We Know to be True",
     },
     {
       href: "https://a16z.com/why-software-is-eating-the-world/",
@@ -24,13 +24,14 @@ export const notesData: NotesData = {
       title: "How Browsers Work",
     },
     {
-      href: "https://oreilly.com/library/view/what-is-the/9781492072973/ch01.html",
-      title: "What Is the Modern Web Platform?",
-    },
-    {
       href: "https://3perf.com/talks/web-perf-101/",
       title: "Web Performance 101",
     },
+    {
+      href: "https://oreilly.com/library/view/what-is-the/9781492072973/ch01.html",
+      title: "What is Token Economy?",
+    },
+
     {
       href: "https://ethereum.org/en/web3/",
       title: "Introduction to Web3",
@@ -46,6 +47,10 @@ export const notesData: NotesData = {
     {
       href: "https://ui.dev/why-react-query",
       title: "Why React Query",
+    },
+    {
+      href: "https://pomb.us/build-your-own-react/",
+      title: "Build Your Own React",
     },
     {
       href: "https://bradfrost.com/blog/post/css-architecture-for-design-systems/",
@@ -67,10 +72,7 @@ export const notesData: NotesData = {
       href: "https://spotify.design/article/the-paradox-of-design-systems",
       title: "The Paradox of Design Systems",
     },
-    {
-      href: "https://overreacted.io/the-elements-of-ui-engineering/",
-      title: "The Elements of UI Engineering",
-    },
+
     {
       href: "https://svelte.dev/blog/frameworks-without-the-framework",
       title: "Frameworks without the Framework",
@@ -85,6 +87,18 @@ export const notesData: NotesData = {
       title: "UX Engineering",
     },
     {
+      href: "https://overreacted.io/the-elements-of-ui-engineering/",
+      title: "The Elements of UI Engineering",
+    },
+    {
+      href: "https://tobiasahlin.com/blog/meaningful-motion-w-action-driven-animation/",
+      title: "Meaningful Motion with Action-Driven Animation",
+    },
+    {
+      href: "https://pudding.cool/2018/02/waveforms/",
+      title: "Waveforms - Interactive Visualization",
+    },
+    {
       href: "https://leerob.com/product-engineers",
       title: "Product Engineers",
     },
@@ -97,22 +111,14 @@ export const notesData: NotesData = {
       title: "The Prompt Engineering Playbook for Programmers",
     },
     {
-      href: "https://tobiasahlin.com/blog/meaningful-motion-w-action-driven-animation/",
-      title: "Meaningful Motion with Action-Driven Animation",
-    },
-    {
-      href: "https://pudding.cool/2018/02/waveforms/",
-      title: "Waveforms - Interactive Visualization",
-    },
-    {
       href: "https://cognition.ai/blog/dont-build-multi-agents",
       title: "Don't Build Multi-Agents",
     },
   ],
   websites: [
     {
-      href: "https://nissan-global.com/EN/HERITAGE_COLLECTION/skyline.html",
-      title: "Nissan Heritage Collection - Skyline",
+      href: "https://www.nissan-global.com/EN/HERITAGE_COLLECTION/",
+      title: "Nissan Heritage Collection",
     },
     {
       href: "https://sony.com/en/SonyInfo/design/gallery/",
@@ -127,42 +133,54 @@ export const notesData: NotesData = {
       title: "Laws of UX",
     },
     {
-      href: "https://javascriptpatterns.vercel.app/patterns/design-patterns/introduction",
-      title: "JavaScript Patterns - Design Patterns",
+      href: "https://designsystems.surf/design-systems",
+      title: "Design Systems Gallery",
     },
   ],
   tools: [
     {
-      href: "https://excalidraw.com/",
-      title: "Excalidraw - Virtual whiteboard",
+      href: "https://www.notion.so/",
+      title: "Notion",
+    },
+    {
+      href: "https://www.figma.com/",
+      title: "Figma",
     },
     {
       href: "https://www.tldraw.com",
-      title: "tldraw - Infinite canvas",
+      title: "tldraw",
     },
     {
       href: "https://jsoncrack.com/editor",
-      title: "JSON Crack - JSON visualizer",
+      title: "JSON Crack",
     },
     {
       href: "https://transform.tools/",
-      title: "Transform Tools - Code converters",
+      title: "Transform Tools",
     },
     {
       href: "https://layout.bradwoods.io/",
-      title: "Layout - CSS Grid generator",
+      title: "CSS Grid generator",
     },
     {
-      href: "https://designsystems.surf/design-systems",
-      title: "Design Systems Gallery",
+      href: "https://tailwindcss.com/",
+      title: "Tailwind CSS",
     },
     {
-      href: "https://carbondesignsystem.com/",
-      title: "Carbon Design System",
+      href: "https://www.radix-ui.com/",
+      title: "Radix UI",
     },
     {
-      href: "https://polaris-react.shopify.com/",
-      title: "Shopify Polaris",
+      href: "https://ui.shadcn.com/",
+      title: "Shadcn UI",
+    },
+    {
+      href: "https://motion.dev/",
+      title: "Motion",
+    },
+    {
+      href: "https://v0.dev/",
+      title: "v0",
     },
   ],
 }

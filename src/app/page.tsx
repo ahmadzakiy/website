@@ -24,16 +24,16 @@ export default function Home() {
 
   const gradientColors =
     resolvedTheme === "light"
-      ? ["#f1f1f1", "#C7C7C7", "#C7C7C7"]
-      : ["#232323", "#3C3C3C", "#3C3C3C"]
+      ? ["#9ca2af", "#d1d5db", "#9ca3af"]
+      : ["#6b7281", "#4b5563", "#6b7280"]
 
   return (
     <>
       <div className="flex min-h-screen w-full flex-col items-center justify-start gap-4 p-8 pt-32 sm:p-8 sm:pt-36">
-        <span className="pointer-events-none absolute inset-0 z-0 bg-[#f1f1f1] dark:bg-[#232323]">
-          <AnimatedGradient blur="medium" colors={gradientColors} speed={10} />
+        <span className="pointer-events-none absolute inset-0 z-0 bg-[#d1d5db] dark:bg-[#4b5563]">
+          <AnimatedGradient blur="medium" colors={gradientColors} speed={20} />
         </span>
-        <h1 className="relative z-10 text-3xl text-black leading-tight sm:text-6xl dark:text-white">
+        <h1 className="relative z-10 text-3xl text-black sm:text-6xl sm:leading-18 dark:text-white">
           <ScrambleText
             maxIterations={15}
             scrambleSpeed={50}
@@ -44,7 +44,7 @@ export default function Home() {
           <ScrambleText
             maxIterations={12}
             scrambleSpeed={70}
-            text="When he's not designing and coding, he's listening to hardcore/punk, thinking and exploring the world of AI."
+            text="When he's not designing and coding things on the web, he's listening to hardcore/punk, but mostly he pretends to find peace."
           />
           <br />
           <br />

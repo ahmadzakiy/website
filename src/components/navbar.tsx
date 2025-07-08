@@ -10,13 +10,13 @@ export default function Navbar() {
   const { scrollY } = useScroll()
 
   // Transform values based on scroll
-  const top = useTransform(scrollY, [0, 120], [16, 0])
+  const top = useTransform(scrollY, [0, 32], [32, 0])
   const left = useTransform(scrollY, [0, 120], [16, 0])
   const right = useTransform(scrollY, [0, 120], [16, 0])
-  const borderRadius = useTransform(scrollY, [0, 60], [9999, 0])
-  const maxWidth = useTransform(scrollY, [50, 200], [800, 9999]) // Start later, more gradual width change
-  const paddingX = useTransform(scrollY, [0, 120], [16, 24])
-  const shadowOpacity = useTransform(scrollY, [0, 80], [0.15, 0]) // Shadow fades out as it becomes sticky
+  const borderRadius = useTransform(scrollY, [0, 64], [9999, 0])
+  const maxWidth = useTransform(scrollY, [0, 200], [800, 9999])
+  const paddingX = useTransform(scrollY, [32, 120], [16, 32])
+  const shadowOpacity = useTransform(scrollY, [0, 32], [0.15, 0])
   const boxShadow = useTransform(
     shadowOpacity,
     (opacity) => `0 8px 32px rgba(0, 0, 0, ${opacity})`
@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed z-50 mx-auto border border-white/20 bg-white/70 backdrop-blur-md dark:border-white/10 dark:bg-black/70"
+      className="fixed z-50 mx-auto border border-white/20 bg-white/70 backdrop-blur-sm dark:border-white/10 dark:bg-black/70"
       style={{
         top,
         left,
@@ -48,8 +48,7 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <ScrambleLink href="/" text="About" />
-            <ScrambleLink href="/project" text="Project" />
+            <ScrambleLink href="/projects" text="Projects" />
             <ScrambleLink href="/notes" text="Notes" />
             <ScrambleLink href="/links" text="Links" />
             <DarkModeToggle />

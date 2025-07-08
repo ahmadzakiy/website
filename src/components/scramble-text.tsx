@@ -15,7 +15,7 @@ export default function FullScramble({
   className = "",
   scrambleSpeed = 50,
   maxIterations = 20,
-  characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+",
+  characters = "01",
 }: FullScrambleProps) {
   const [displayText, setDisplayText] = useState(text)
   const [isScrambling, setIsScrambling] = useState(true)
