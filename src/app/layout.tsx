@@ -28,10 +28,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ahmad Zakiy",
-  description: "Ahmad Zakiy is a UX Engineer at Mekari",
+  description: "Living a life shaped by bits rather than atoms",
   icons: {
-    icon: "/sijaki.jpg",
-    apple: "/sijaki.jpg",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 }
 

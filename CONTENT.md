@@ -6,7 +6,7 @@
 
 # Homepage
 ## About
-Ahmad Zakiy is UX Engineer at a Mekari, focused on building and scaling Design Systems that help teams craft better interfaces.
+Ahmad Zakiy is UX Engineer at Mekari, focused on building and scaling Design Systems that help teams craft better interfaces.
 
 When he's not designing and coding, he's listening to hardcore/punk, thinking and exploring the world of AI.
 

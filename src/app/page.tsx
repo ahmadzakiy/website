@@ -37,14 +37,14 @@ export default function Home() {
           <ScrambleText
             maxIterations={15}
             scrambleSpeed={50}
-            text="Ahmad Zakiy is UX Engineer at a Mekari, focused on building and scaling Design Systems that help teams craft sleekest user experiences."
+            text="Ahmad Zakiy is UX Engineer at Mekari, focused on building and scaling Design Systems that help teams craft sleekest user experiences."
           />
           <br />
           <br />
           <ScrambleText
             maxIterations={12}
             scrambleSpeed={70}
-            text="When he's not designing and coding things on the web, he's listening to hardcore/punk, but mostly he pretends to find peace."
+            text="When he's not designing and coding, he's listening to hardcore/punk, but mostly he pretends to find peace."
           />
           <br />
           <br />
