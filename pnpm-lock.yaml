@@ -17,6 +17,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lenis:
+        specifier: ^1.3.8
+        version: 1.3.8(react@19.0.0)
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -879,6 +882,20 @@ packages:
   lefthook@1.11.14:
     resolution: {integrity: sha512-Dv91Lnu/0jLT5pCZE0IkEfrpTXUhyX9WG4upEMPkKPCl5aBgJdoqVw/hbh8drcVrC6y7k1PqsRmWSERmO57weQ==}
     hasBin: true
+
+  lenis@1.3.8:
+    resolution: {integrity: sha512-LVeoMs6jZE1eu3gPsexndm+vk01pLFeq7P00vjIpI17saD52IYu8nPA4gX43elz8tp/TTCXcX6Em1MEjDl9NTw==}
+    peerDependencies:
+      '@nuxt/kit': '>=3.0.0'
+      react: '>=17.0.0'
+      vue: '>=3.0.0'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      react:
+        optional: true
+      vue:
+        optional: true
 
   lightningcss-darwin-arm64@1.29.1:
     resolution: {integrity: sha512-HtR5XJ5A0lvCqYAoSv2QdZZyoHNttBpa5EP9aNuzBQeKGfbyH5+UipLWvVzpP4Uml5ej4BYs5I9Lco9u1fECqw==}
@@ -1834,6 +1851,10 @@ snapshots:
       lefthook-openbsd-x64: 1.11.14
       lefthook-windows-arm64: 1.11.14
       lefthook-windows-x64: 1.11.14
+
+  lenis@1.3.8(react@19.0.0):
+    optionalDependencies:
+      react: 19.0.0
 
   lightningcss-darwin-arm64@1.29.1:
     optional: true

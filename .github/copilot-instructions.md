@@ -1,8 +1,65 @@
 ---
-description: Ultracite Rules
+description: Ahmad Zakiy's Personal Website - Next.js with Motion & Custom Components
 globs: "**/*.{ts,tsx,js,jsx}"
 alwaysApply: true
 ---
+
+## Project Architecture & Patterns
+
+This is a Next.js 15 personal portfolio/blog site using App Router with a unique component architecture:
+
+### Key Technologies & Structure
+- **Framework**: Next.js 15 with App Router, React 19, TypeScript
+- **Styling**: Tailwind CSS v4 with custom design tokens in `src/app/globals.css`
+- **Animation**: Motion (framer-motion v12) for smooth scroll-based animations
+- **Linting**: Biome with Ultracite rules (strict accessibility & code quality)
+- **Development**: Custom port 9000 (`pnpm dev`), Lefthook for git hooks
+
+### Component Organization Pattern
+```
+src/components/          # Core reusable components (navbar, theme, etc.)
+src/fancy/components/    # Experimental/creative components organized by type:
+  background/            # Background effects (animated gradients)
+  blocks/               # Layout blocks
+  text/                 # Text animations (scramble effects)
+```
+
+### Theme System Architecture
+- Custom ThemeProvider with localStorage persistence using "website-theme" key
+- Manual theme resolution in components that need theme-aware logic (see `page.tsx`)
+- CSS custom properties in `globals.css` with `.dark` class overrides
+- Always check `mounted` state before applying theme-dependent logic to prevent hydration mismatches
+
+### Motion/Animation Patterns
+- Use `motion` from "motion/react" (not framer-motion)
+- **Lenis Integration**: Use `useLenis()` hook with `useMotionValue()` for scroll-based animations that sync with smooth scrolling
+- Pattern: Create `scrollY = useMotionValue(0)` and update it via Lenis `scroll` event listener
+- Custom scramble text effects with configurable speed/iterations - see `scramble-text.tsx`
+- Background gradients use CSS keyframes with CSS custom properties for randomization
+
+### Font Configuration
+Three fonts configured in `layout.tsx`:
+- `Inter` (sans): Primary UI font
+- `Instrument_Serif` (serif): Decorative text
+- `Geist_Mono` (mono): Code/monospace (set as body default)
+
+### Development Workflow
+- Port 9000 for dev server
+- Biome handles both linting and formatting (`pnpm lint`, `pnpm format`)
+- Pre-commit hooks auto-fix and stage files
+- No separate Tailwind config - using Tailwind v4 @import pattern
+
+### Coding Conventions Specific to This Project
+- All client components explicitly marked with "use client"
+- Custom hooks in `/hooks` (e.g., `use-debounced-dimensions.ts`)
+- Data files in `/data` (e.g., `notes.ts`)
+- Prefer composition over inheritance for animations
+- Use `cn()` utility from `@/lib/utils` for className merging
+- SVG elements must include descriptive `<title>` elements
+
+---
+
+## Ultracite Linting Rules
 
 - Don't use `accessKey` attribute on any HTML element.
 - Don't set `aria-hidden="true"` on focusable elements.

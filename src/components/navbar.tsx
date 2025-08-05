@@ -1,20 +1,40 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "motion/react"
+import { useLenis } from "lenis/react"
+import { motion, useMotionValue, useTransform } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect } from "react"
 import { DarkModeToggle } from "./dark-mode-toggle"
 import ScrambleLink from "./scramble-link"
 
 export default function Navbar() {
-  const { scrollY } = useScroll()
+  const lenis = useLenis()
+  const scrollY = useMotionValue(0)
 
-  // Transform values based on scroll
+  // Listen to Lenis scroll events and update Motion's scrollY value
+  useEffect(() => {
+    if (!lenis) {
+      return
+    }
+
+    const updateScrollY = (e: { scroll: number }) => {
+      scrollY.set(e.scroll)
+    }
+
+    lenis.on("scroll", updateScrollY)
+    return () => lenis.off("scroll", updateScrollY)
+  }, [lenis, scrollY])
+
+  // Transform values based on Lenis scroll
   const top = useTransform(scrollY, [0, 32], [32, 0])
-  const left = useTransform(scrollY, [0, 120], [16, 0])
-  const right = useTransform(scrollY, [0, 120], [16, 0])
-  const borderRadius = useTransform(scrollY, [0, 64], [9999, 0])
-  const maxWidth = useTransform(scrollY, [0, 200], [800, 9999])
+  const leftRight = useTransform(
+    scrollY,
+    [0, 120],
+    ["calc(50vw - 400px)", "0px"]
+  )
+  const borderRadius = useTransform(scrollY, [0, 80], [9999, 0])
+  const width = useTransform(scrollY, [0, 120], [800, "100vw"])
   const paddingX = useTransform(scrollY, [32, 120], [16, 32])
   const shadowOpacity = useTransform(scrollY, [0, 32], [0.15, 0])
   const boxShadow = useTransform(
@@ -24,13 +44,13 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed z-50 mx-auto border border-white/20 bg-white/70 backdrop-blur-sm dark:border-white/10 dark:bg-black/70"
+      className="fixed z-50 border border-white/20 bg-white/70 backdrop-blur-sm dark:border-white/10 dark:bg-black/70"
       style={{
         top,
-        left,
-        right,
+        left: leftRight,
+        right: leftRight,
         borderRadius,
-        maxWidth,
+        width,
         boxShadow,
       }}
     >

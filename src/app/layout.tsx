@@ -1,5 +1,10 @@
+import { ReactLenis } from "lenis/react"
 import type { Metadata } from "next"
-import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google"
+import {
+  Geist_Mono,
+  Instrument_Serif,
+  Plus_Jakarta_Sans,
+} from "next/font/google"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import "./globals.css"
@@ -14,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 })
 
-const interSans = Inter({
+const interSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -53,6 +58,7 @@ export default function RootLayout({
           "relative z-10"
         )}
       >
+        <ReactLenis root />
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
           <Navbar />
           {children}
