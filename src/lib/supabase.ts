@@ -52,7 +52,7 @@ export async function getAllNotesGroupedByCategory() {
     throw new Error(`Error fetching notes: ${error.message}`)
   }
 
-  // Group by category
+  // Group by category and include id for unique keys
   const grouped = (data || []).reduce(
     (acc, note) => {
       const categories = note.categories as
@@ -62,6 +62,7 @@ export async function getAllNotesGroupedByCategory() {
       const categoryName = category?.name as "articles" | "websites" | "tools"
       if (categoryName && acc[categoryName]) {
         acc[categoryName].push({
+          id: note.id,
           href: note.href,
           title: note.title,
         })
@@ -69,11 +70,30 @@ export async function getAllNotesGroupedByCategory() {
       return acc
     },
     {
-      articles: [] as Array<{ href: string; title: string }>,
-      websites: [] as Array<{ href: string; title: string }>,
-      tools: [] as Array<{ href: string; title: string }>,
+      articles: [] as Array<{ id: number; href: string; title: string }>,
+      websites: [] as Array<{ id: number; href: string; title: string }>,
+      tools: [] as Array<{ id: number; href: string; title: string }>,
     }
   )
 
-  return grouped
+  // Remove duplicates based on href within each category
+  const deduplicated = {
+    articles: removeDuplicatesByHref(grouped.articles),
+    websites: removeDuplicatesByHref(grouped.websites),
+    tools: removeDuplicatesByHref(grouped.tools),
+  }
+
+  return deduplicated
+}
+
+// Helper function to remove duplicates by href, keeping the first occurrence
+function removeDuplicatesByHref<T extends { href: string }>(items: T[]): T[] {
+  const seen = new Set<string>()
+  return items.filter((item) => {
+    if (seen.has(item.href)) {
+      return false
+    }
+    seen.add(item.href)
+    return true
+  })
 }

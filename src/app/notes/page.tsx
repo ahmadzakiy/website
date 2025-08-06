@@ -18,7 +18,7 @@ async function NotesSection() {
         </h2>
         <ol className="flex flex-col gap-1 sm:text-lg">
           {notesData.articles.map((article, index: number) => (
-            <li key={article.href}>
+            <li key={article.id}>
               <ScrambleLink
                 href={article.href}
                 rel="noopener"
@@ -37,7 +37,7 @@ async function NotesSection() {
         </h2>
         <ol className="flex flex-col gap-1 sm:text-lg">
           {notesData.websites.map((website, index: number) => (
-            <li key={website.href}>
+            <li key={website.id}>
               <ScrambleLink
                 href={website.href}
                 rel="noopener"
@@ -56,7 +56,7 @@ async function NotesSection() {
         </h2>
         <ol className="flex flex-col gap-1 sm:text-lg">
           {notesData.tools.map((tool, index: number) => (
-            <li key={tool.href}>
+            <li key={tool.id}>
               <ScrambleLink
                 href={tool.href}
                 rel="noopener"
