@@ -2,23 +2,70 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, set up your environment variables by creating a `.env.local` file:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.template .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Edit `.env.local` and add your Supabase credentials:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then, run the development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:9000](http://localhost:9000) with your browser to see the result.
+
+## Supabase Setup
+
+This project uses Supabase as the database for storing notes/links data. The database schema is defined in `supabase-setup.sql`.
+
+### Database Structure
+
+- `categories` table: Stores the three main categories (articles, websites, tools)
+- `notes` table: Stores all links with references to categories
+
+### Running the Setup
+
+1. Create a new Supabase project
+2. Run the SQL commands from `supabase-setup.sql` in your Supabase SQL editor
+3. Copy your project URL and anon key to `.env.local`
+
+## Project Architecture
+
+This project follows a specific architecture pattern:
+
+- **Framework**: Next.js 15 with App Router, React 19, TypeScript
+- **Styling**: Tailwind CSS v4 with custom design tokens
+- **Animation**: Motion (framer-motion v12) for smooth scroll-based animations
+- **Database**: Supabase for data storage
+- **Linting**: Biome with Ultracite rules
+
+### Component Organization
+
+```
+src/components/          # Core reusable components
+src/fancy/components/    # Experimental/creative components
+  background/            # Background effects
+  blocks/               # Layout blocks
+  text/                 # Text animations
+```
+
+## Development
+
+This project uses:
+
+- Port 9000 for development server
+- Biome for linting and formatting (`pnpm lint`, `pnpm format`)
+- Lefthook for git hooks
+- Custom theme system with localStorage persistence
 
 ## Learn More
 
