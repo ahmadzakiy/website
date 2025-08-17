@@ -33,6 +33,24 @@ export interface NoteWithCategory extends Note {
 }
 
 export async function getAllNotesGroupedByCategory() {
+  // First, fetch categories from Supabase
+  const { data: categoriesData, error: categoriesError } = await supabase
+    .from("categories")
+    .select("id, name")
+
+  if (categoriesError) {
+    throw new Error(`Error fetching categories: ${categoriesError.message}`)
+  }
+
+  // Create mapping from category ID to name
+  const categoryIdToName: Record<number, string> = {}
+  if (categoriesData) {
+    for (const category of categoriesData) {
+      categoryIdToName[category.id] = category.name
+    }
+  }
+
+  // Second, fetch notes from Supabase
   const { data, error } = await supabase
     .from("notes")
     .select(`
@@ -40,27 +58,23 @@ export async function getAllNotesGroupedByCategory() {
       href,
       title,
       category_id,
-      created_at,
-      categories (
-        id,
-        name
-      )
+      created_at
     `)
-    .order("created_at", { ascending: true })
+    .order("id", { ascending: true })
 
   if (error) {
     throw new Error(`Error fetching notes: ${error.message}`)
   }
 
-  // Group by category and include id for unique keys
+  // Group by category using category_id
   const grouped = (data || []).reduce(
     (acc, note) => {
-      const categories = note.categories as
-        | { id: number; name: string }
-        | { id: number; name: string }[]
-      const category = Array.isArray(categories) ? categories[0] : categories
-      const categoryName = category?.name as "articles" | "websites" | "tools"
-      if (categoryName && acc[categoryName]) {
+      const categoryName = categoryIdToName[note.category_id]
+
+      if (categoryName) {
+        if (!acc[categoryName]) {
+          acc[categoryName] = []
+        }
         acc[categoryName].push({
           id: note.id,
           href: note.href,
@@ -69,31 +83,26 @@ export async function getAllNotesGroupedByCategory() {
       }
       return acc
     },
-    {
-      articles: [] as Array<{ id: number; href: string; title: string }>,
-      websites: [] as Array<{ id: number; href: string; title: string }>,
-      tools: [] as Array<{ id: number; href: string; title: string }>,
-    }
+    {} as Record<string, Array<{ id: number; href: string; title: string }>>
   )
 
-  // Remove duplicates based on href within each category
-  const deduplicated = {
-    articles: removeDuplicatesByHref(grouped.articles),
-    websites: removeDuplicatesByHref(grouped.websites),
-    tools: removeDuplicatesByHref(grouped.tools),
+  // Group notes by category and return dynamic result based on actual categories
+  const result: Record<
+    string,
+    Array<{ id: number; href: string; title: string }>
+  > = {}
+
+  // Initialize all categories from the database
+  if (categoriesData) {
+    for (const category of categoriesData) {
+      result[category.name] = grouped[category.name] || []
+    }
   }
 
-  return deduplicated
-}
-
-// Helper function to remove duplicates by href, keeping the first occurrence
-function removeDuplicatesByHref<T extends { href: string }>(items: T[]): T[] {
-  const seen = new Set<string>()
-  return items.filter((item) => {
-    if (seen.has(item.href)) {
-      return false
-    }
-    seen.add(item.href)
-    return true
-  })
+  // Ensure we always have the expected categories for the UI, even if they're empty
+  return {
+    articles: result.articles || [],
+    websites: result.websites || [],
+    tools: result.tools || [],
+  }
 }
