@@ -92,7 +92,7 @@ export default function NotesPage() {
             </div>
           }
         >
-          <ErrorBoundary fallback="Unable to load notes from Supabase. Please check your environment variables.">
+          <ErrorBoundary fallback="Unable to load notes from Supabase.">
             <NotesSection />
           </ErrorBoundary>
         </Suspense>

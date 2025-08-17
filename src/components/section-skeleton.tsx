@@ -20,13 +20,13 @@ export function SectionSkeleton({
   return (
     <section className="flex flex-col gap-4">
       <div
-        className={`${titleHeight} ${titleWidth} animate-pulse rounded bg-slate-200 dark:bg-slate-600`}
+        className={`${titleHeight} ${titleWidth} animate-pulse rounded bg-gray-400 dark:bg-gray-400`}
       />
       <ol className="flex flex-col gap-1 sm:text-lg">
         {skeletonItems.map((item) => (
           <li key={item}>
             <div
-              className={`${itemHeight} animate-pulse rounded bg-slate-200 dark:bg-slate-600`}
+              className={`${itemHeight} animate-pulse rounded bg-gray-400 dark:bg-gray-400`}
             />
           </li>
         ))}
