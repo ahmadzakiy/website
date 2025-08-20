@@ -40,9 +40,7 @@ export default function ScrambleLink({
           if (char === " ") {
             return " "
           }
-          return availableChars[
-            Math.floor(Math.random() * availableChars.length)
-          ]
+          return availableChars[Math.floor(Math.random() * availableChars.length)]
         })
         .join("")
     }
@@ -80,7 +78,7 @@ export default function ScrambleLink({
     <Link
       className={cn(
         "inline-block cursor-pointer whitespace-pre-wrap text-left text-gray-900 transition-colors duration-200 hover:text-gray-400 sm:text-lg dark:text-white dark:hover:text-gray-400",
-        className
+        className,
       )}
       href={href}
       onBlur={handleMouseLeave}

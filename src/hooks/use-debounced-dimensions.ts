@@ -5,9 +5,7 @@ type Dimensions = {
   height: number
 }
 
-export function useDimensions(
-  ref: RefObject<HTMLElement | SVGElement | null>
-): Dimensions {
+export function useDimensions(ref: RefObject<HTMLElement | SVGElement | null>): Dimensions {
   const [dimensions, setDimensions] = useState<Dimensions>({
     width: 0,
     height: 0,

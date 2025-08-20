@@ -28,19 +28,12 @@ export default function Navbar() {
 
   // Transform values based on Lenis scroll
   const top = useTransform(scrollY, [0, 32], [32, 0])
-  const leftRight = useTransform(
-    scrollY,
-    [0, 120],
-    ["calc(50vw - 400px)", "0px"]
-  )
+  const leftRight = useTransform(scrollY, [0, 120], ["calc(50vw - 400px)", "0px"])
   const borderRadius = useTransform(scrollY, [0, 80], [9999, 0])
   const width = useTransform(scrollY, [0, 120], [800, "100vw"])
   const paddingX = useTransform(scrollY, [32, 120], [16, 32])
   const shadowOpacity = useTransform(scrollY, [0, 32], [0.15, 0])
-  const boxShadow = useTransform(
-    shadowOpacity,
-    (opacity) => `0 8px 32px rgba(0, 0, 0, ${opacity})`
-  )
+  const boxShadow = useTransform(shadowOpacity, (opacity) => `0 8px 32px rgba(0, 0, 0, ${opacity})`)
 
   return (
     <motion.nav

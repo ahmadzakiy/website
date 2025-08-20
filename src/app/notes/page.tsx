@@ -51,9 +51,7 @@ async function NotesSection() {
 
       {/* Tools Section */}
       <section className="flex flex-col gap-4">
-        <h2 className="font-serif text-gray-600 text-lg sm:text-3xl dark:text-gray-300">
-          tools
-        </h2>
+        <h2 className="font-serif text-gray-600 text-lg sm:text-3xl dark:text-gray-300">tools</h2>
         <ol className="flex flex-col gap-1 sm:text-lg">
           {notesData.tools.map((tool, index: number) => (
             <li key={tool.id}>
@@ -75,11 +73,7 @@ export default function NotesPage() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
       <h1 className="text-2xl text-black leading-tight sm:text-5xl dark:text-white">
-        <ScrambleText
-          maxIterations={15}
-          scrambleSpeed={50}
-          text="Links and Resources"
-        />
+        <ScrambleText maxIterations={15} scrambleSpeed={50} text="Links and Resources" />
       </h1>
 
       <Suspense

@@ -1,31 +1,92 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
-  "files": {
-    "ignoreUnknown": false,
-    "includes": ["**/*.{js,jsx,ts,tsx,json,jsonc}"],
-    "experimentalScannerIgnores": ["node_modules/", ".next/", "public/"]
+  "extends": ["ultracite"],
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
       "style": {
-        "noMagicNumbers": "off"
+        "noNonNullAssertion": "off",
+        "useImportType": "error",
+        "noMagicNumbers": "warn"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUnusedFunctionParameters": "warn"
+      },
+      "complexity": {
+        "noForEach": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn",
+        "noArrayIndexKey": "warn",
+        "noConsole": "warn"
+      },
+      "performance": {
+        "noImgElement": "warn"
+      },
+      "nursery": {
+        "useImageSize": "warn"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "warn",
+        "useButtonType": "error"
       }
     }
   },
   "formatter": {
     "enabled": true,
+    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 80
+    "lineWidth": 100,
+    "lineEnding": "lf"
   },
   "javascript": {
     "formatter": {
+      "jsxQuoteStyle": "double",
       "quoteStyle": "double",
-      "trailingCommas": "es5",
-      "semicolons": "asNeeded"
+      "trailingCommas": "all",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false
     }
   },
-  "extends": ["ultracite"]
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "files": {
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.json",
+      "**/*.jsonc",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/dist",
+      "!**/build",
+      "!**/.git",
+      "!**/*.min.js",
+      "!**/coverage",
+      "!**/.vercel",
+      "!**/.turbo"
+    ]
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  }
 }

@@ -26,7 +26,7 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
 
   const circleSize = useMemo(
     () => Math.max(dimensions.width, dimensions.height),
-    [dimensions.width, dimensions.height]
+    [dimensions.width, dimensions.height],
   )
 
   let blurClass = "blur-2xl"

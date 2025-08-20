@@ -48,8 +48,7 @@ export function ThemeProvider({
     root.classList.remove("light", "dark")
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light"
 
@@ -71,9 +70,7 @@ export function ThemeProvider({
   // Don't render children until mounted to prevent hydration mismatch
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
-      <div style={{ visibility: mounted ? "visible" : "hidden" }}>
-        {children}
-      </div>
+      <div style={{ visibility: mounted ? "visible" : "hidden" }}>{children}</div>
     </ThemeProviderContext.Provider>
   )
 }

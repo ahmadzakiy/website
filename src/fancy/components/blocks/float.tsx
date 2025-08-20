@@ -42,12 +42,9 @@ const Float: React.FC<FloatProps> = ({
     const newZ = Math.sin(time.current * 0.5 + timeOffset) * amplitude[2]
 
     // 3D rotations with different frequencies for more organic movement
-    const newRotateX =
-      Math.sin(time.current * 0.5 + timeOffset) * rotationRange[0]
-    const newRotateY =
-      Math.sin(time.current * 0.4 + timeOffset) * rotationRange[1]
-    const newRotateZ =
-      Math.sin(time.current * 0.3 + timeOffset) * rotationRange[2]
+    const newRotateX = Math.sin(time.current * 0.5 + timeOffset) * rotationRange[0]
+    const newRotateY = Math.sin(time.current * 0.4 + timeOffset) * rotationRange[1]
+    const newRotateZ = Math.sin(time.current * 0.3 + timeOffset) * rotationRange[2]
 
     x.set(newX)
     y.set(newY)

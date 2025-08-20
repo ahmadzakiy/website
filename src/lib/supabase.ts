@@ -83,14 +83,11 @@ export async function getAllNotesGroupedByCategory() {
       }
       return acc
     },
-    {} as Record<string, Array<{ id: number; href: string; title: string }>>
+    {} as Record<string, Array<{ id: number; href: string; title: string }>>,
   )
 
   // Group notes by category and return dynamic result based on actual categories
-  const result: Record<
-    string,
-    Array<{ id: number; href: string; title: string }>
-  > = {}
+  const result: Record<string, Array<{ id: number; href: string; title: string }>> = {}
 
   // Initialize all categories from the database
   if (categoriesData) {

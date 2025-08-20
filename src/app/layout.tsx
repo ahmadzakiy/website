@@ -1,10 +1,6 @@
 import { ReactLenis } from "lenis/react"
 import type { Metadata } from "next"
-import {
-  Geist_Mono,
-  Instrument_Serif,
-  Plus_Jakarta_Sans,
-} from "next/font/google"
+import { Geist_Mono, Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import "./globals.css"
@@ -55,7 +51,7 @@ export default function RootLayout({
           interSans.variable,
           instrumentSerif.variable,
           geistMono.variable,
-          "relative z-10"
+          "relative z-10",
         )}
       >
         <ReactLenis root />

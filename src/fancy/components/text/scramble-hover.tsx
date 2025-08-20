@@ -40,15 +40,9 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
       const middle = Math.floor(textLength / 2)
       const offset = Math.floor(revealedIndices.current.size / 2)
       const nextIndex =
-        revealedIndices.current.size % 2 === 0
-          ? middle + offset
-          : middle - offset - 1
+        revealedIndices.current.size % 2 === 0 ? middle + offset : middle - offset - 1
 
-      if (
-        nextIndex >= 0 &&
-        nextIndex < textLength &&
-        !revealedIndices.current.has(nextIndex)
-      ) {
+      if (nextIndex >= 0 && nextIndex < textLength && !revealedIndices.current.has(nextIndex)) {
         return nextIndex
       }
 
@@ -91,10 +85,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
         // Shuffle remaining non-revealed, non-space characters
         for (let i = nonSpaceChars.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1))
-          ;[nonSpaceChars[i], nonSpaceChars[j]] = [
-            nonSpaceChars[j],
-            nonSpaceChars[i],
-          ]
+          ;[nonSpaceChars[i], nonSpaceChars[j]] = [nonSpaceChars[j], nonSpaceChars[i]]
         }
 
         let charIndex = 0
@@ -120,9 +111,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
           if (revealedIndices.current.has(i)) {
             return text[i]
           }
-          return availableChars[
-            Math.floor(Math.random() * availableChars.length)
-          ]
+          return availableChars[Math.floor(Math.random() * availableChars.length)]
         })
         .join("")
     }
@@ -190,7 +179,7 @@ const ScrambleHover: React.FC<ScrambleHoverProps> = ({
             className={cn(
               revealedIndices.current.has(index) || !isScrambling || !isHovering
                 ? className
-                : scrambledClassName
+                : scrambledClassName,
             )}
             key={`${text}-${index}-${char}`}
           >

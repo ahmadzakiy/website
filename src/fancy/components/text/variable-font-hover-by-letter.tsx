@@ -1,12 +1,7 @@
 "use client"
 
 import { debounce } from "lodash"
-import {
-  type AnimationOptions,
-  motion,
-  stagger,
-  useAnimate,
-} from "motion/react"
+import { type AnimationOptions, motion, stagger, useAnimate } from "motion/react"
 import { useState } from "react"
 
 type TextProps = {
@@ -54,11 +49,11 @@ const VariableFontHoverByLetter = ({
       animate(
         ".letter",
         { fontVariationSettings: toFontVariationSettings },
-        mergeTransition(transition)
+        mergeTransition(transition),
       )
     },
     100,
-    { leading: true, trailing: true }
+    { leading: true, trailing: true },
   )
 
   const hoverEnd = debounce(
@@ -68,11 +63,11 @@ const VariableFontHoverByLetter = ({
       animate(
         ".letter",
         { fontVariationSettings: fromFontVariationSettings },
-        mergeTransition(transition)
+        mergeTransition(transition),
       )
     },
     100,
-    { leading: true, trailing: true }
+    { leading: true, trailing: true },
   )
 
   return (
@@ -89,11 +84,7 @@ const VariableFontHoverByLetter = ({
       {label.split("").map((letter: string, i: number) => {
         const key = `${letter}-${i}`
         return (
-          <motion.span
-            aria-hidden="true"
-            className="letter inline-block whitespace-pre"
-            key={key}
-          >
+          <motion.span aria-hidden="true" className="letter inline-block whitespace-pre" key={key}>
             {letter}
           </motion.span>
         )
