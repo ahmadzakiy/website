@@ -1,4 +1,4 @@
-interface SectionSkeletonProps {
+type SectionSkeletonProps = {
   titleWidth?: string
   titleHeight?: string
   itemCount?: number

@@ -6,7 +6,7 @@ import { useMemo, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { useDimensions } from "../../../hooks/use-debounced-dimensions"
 
-interface AnimatedGradientProps {
+type AnimatedGradientProps = {
   colors: string[]
   speed?: number
   blur?: "light" | "medium" | "heavy"

@@ -14,7 +14,7 @@ if (!supabaseAnonKey) {
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Types for our database
-export interface Note {
+export type Note = {
   id: number
   href: string
   title: string
@@ -22,7 +22,7 @@ export interface Note {
   created_at: string
 }
 
-export interface Category {
+export type Category = {
   id: number
   name: string
   created_at: string

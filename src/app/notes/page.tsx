@@ -73,30 +73,28 @@ async function NotesSection() {
 
 export default function NotesPage() {
   return (
-    <>
-      <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
-        <h1 className="text-2xl text-black leading-tight sm:text-5xl dark:text-white">
-          <ScrambleText
-            maxIterations={15}
-            scrambleSpeed={50}
-            text="Links and Resources"
-          />
-        </h1>
+    <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
+      <h1 className="text-2xl text-black leading-tight sm:text-5xl dark:text-white">
+        <ScrambleText
+          maxIterations={15}
+          scrambleSpeed={50}
+          text="Links and Resources"
+        />
+      </h1>
 
-        <Suspense
-          fallback={
-            <div className="flex w-full flex-col gap-8 sm:w-[800px]">
-              <SectionSkeleton />
-              <SectionSkeleton />
-              <SectionSkeleton />
-            </div>
-          }
-        >
-          <ErrorBoundary fallback="Unable to load notes from Supabase.">
-            <NotesSection />
-          </ErrorBoundary>
-        </Suspense>
-      </div>
-    </>
+      <Suspense
+        fallback={
+          <div className="flex w-full flex-col gap-8 sm:w-[800px]">
+            <SectionSkeleton />
+            <SectionSkeleton />
+            <SectionSkeleton />
+          </div>
+        }
+      >
+        <ErrorBoundary fallback="Unable to load notes from Supabase.">
+          <NotesSection />
+        </ErrorBoundary>
+      </Suspense>
+    </div>
   )
 }

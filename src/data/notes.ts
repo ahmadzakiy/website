@@ -1,9 +1,9 @@
-export interface LinkItem {
+export type LinkItem = {
   href: string
   title: string
 }
 
-export interface NotesData {
+export type NotesData = {
   articles: LinkItem[]
   websites: LinkItem[]
   tools: LinkItem[]

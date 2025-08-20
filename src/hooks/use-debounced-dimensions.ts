@@ -1,6 +1,6 @@
 import { type RefObject, useEffect, useState } from "react"
 
-interface Dimensions {
+type Dimensions = {
   width: number
   height: number
 }

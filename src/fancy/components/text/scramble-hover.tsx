@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
-interface ScrambleHoverProps {
+type ScrambleHoverProps = {
   text: string
   scrambleSpeed?: number
   maxIterations?: number

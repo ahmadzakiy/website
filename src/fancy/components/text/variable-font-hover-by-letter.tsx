@@ -9,7 +9,7 @@ import {
 } from "motion/react"
 import { useState } from "react"
 
-interface TextProps {
+type TextProps = {
   label: string
   fromFontVariationSettings: string
   toFontVariationSettings: string

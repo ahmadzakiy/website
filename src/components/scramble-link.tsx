@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
-interface ScrambleLinkProps {
+type ScrambleLinkProps = {
   href: string
   text: string
   className?: string

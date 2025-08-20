@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-interface FullScrambleProps {
+type FullScrambleProps = {
   text: string
   className?: string
   scrambleSpeed?: number
