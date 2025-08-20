@@ -4,6 +4,9 @@ import { debounce } from "lodash"
 import { type AnimationOptions, motion, stagger, useAnimate } from "motion/react"
 import { useState } from "react"
 
+// Debounce delay for hover animations
+const HOVER_DEBOUNCE_DELAY = 100
+
 type TextProps = {
   label: string
   fromFontVariationSettings: string
@@ -52,7 +55,7 @@ const VariableFontHoverByLetter = ({
         mergeTransition(transition),
       )
     },
-    100,
+    HOVER_DEBOUNCE_DELAY,
     { leading: true, trailing: true },
   )
 
@@ -66,7 +69,7 @@ const VariableFontHoverByLetter = ({
         mergeTransition(transition),
       )
     },
-    100,
+    HOVER_DEBOUNCE_DELAY,
     { leading: true, trailing: true },
   )
 

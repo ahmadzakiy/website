@@ -6,6 +6,12 @@ import { useMemo, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { useDimensions } from "../../../hooks/use-debounced-dimensions"
 
+// Animation constants
+const POSITION_RANGE = 50 // Range for random positioning (%)
+const RANDOM_OFFSET = 0.5 // Offset for random values to center around 0
+const SIZE_MIN = 0.5 // Minimum size multiplier for circles
+const SIZE_MAX = 1.5 // Maximum size multiplier for circles
+
 type AnimatedGradientProps = {
   colors: string[]
   speed?: number
@@ -43,26 +49,26 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
           const animationProps = {
             animation: `background-gradient ${speed}s infinite ease-in-out`,
             animationDuration: `${speed}s`,
-            top: `${Math.random() * 50}%`,
-            left: `${Math.random() * 50}%`,
-            "--tx-1": Math.random() - 0.5,
-            "--ty-1": Math.random() - 0.5,
-            "--tx-2": Math.random() - 0.5,
-            "--ty-2": Math.random() - 0.5,
-            "--tx-3": Math.random() - 0.5,
-            "--ty-3": Math.random() - 0.5,
-            "--tx-4": Math.random() - 0.5,
-            "--ty-4": Math.random() - 0.5,
+            top: `${Math.random() * POSITION_RANGE}%`,
+            left: `${Math.random() * POSITION_RANGE}%`,
+            "--tx-1": Math.random() - RANDOM_OFFSET,
+            "--ty-1": Math.random() - RANDOM_OFFSET,
+            "--tx-2": Math.random() - RANDOM_OFFSET,
+            "--ty-2": Math.random() - RANDOM_OFFSET,
+            "--tx-3": Math.random() - RANDOM_OFFSET,
+            "--ty-3": Math.random() - RANDOM_OFFSET,
+            "--tx-4": Math.random() - RANDOM_OFFSET,
+            "--ty-4": Math.random() - RANDOM_OFFSET,
           } as React.CSSProperties
 
           return (
             <svg
               className={cn("absolute", "animate-background-gradient")}
-              height={circleSize * randomInt(0.5, 1.5)}
+              height={circleSize * randomInt(SIZE_MIN, SIZE_MAX)}
               key={color}
               style={animationProps}
               viewBox="0 0 100 100"
-              width={circleSize * randomInt(0.5, 1.5)}
+              width={circleSize * randomInt(SIZE_MIN, SIZE_MAX)}
             >
               <title>{`Animated gradient circle with color ${color}`}</title>
               <circle cx="50" cy="50" fill={color} r="50" />

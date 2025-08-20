@@ -5,6 +5,9 @@ type Dimensions = {
   height: number
 }
 
+// Debounce delay for resize events to avoid excessive calculations
+const RESIZE_DEBOUNCE_DELAY = 250
+
 export function useDimensions(ref: RefObject<HTMLElement | SVGElement | null>): Dimensions {
   const [dimensions, setDimensions] = useState<Dimensions>({
     width: 0,
@@ -23,7 +26,7 @@ export function useDimensions(ref: RefObject<HTMLElement | SVGElement | null>): 
 
     const debouncedUpdateDimensions = () => {
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(updateDimensions, 250) // Wait 250ms after resize ends
+      timeoutId = setTimeout(updateDimensions, RESIZE_DEBOUNCE_DELAY) // Wait after resize ends
     }
 
     // Initial measurement

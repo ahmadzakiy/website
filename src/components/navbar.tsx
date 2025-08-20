@@ -8,6 +8,17 @@ import { useEffect } from "react"
 import { DarkModeToggle } from "./dark-mode-toggle"
 import ScrambleLink from "./scramble-link"
 
+// Scroll animation constants
+const INITIAL_TOP_OFFSET = 32
+const SCROLL_THRESHOLD_BASIC = 32
+const SCROLL_THRESHOLD_EXTENDED = 80
+const SCROLL_THRESHOLD_FULL = 120
+const MAX_BORDER_RADIUS = 9999
+const INITIAL_WIDTH = 800
+const INITIAL_PADDING = 16
+const FINAL_PADDING = 32
+const SHADOW_OPACITY = 0.15
+
 export default function Navbar() {
   const lenis = useLenis()
   const scrollY = useMotionValue(0)
@@ -27,12 +38,16 @@ export default function Navbar() {
   }, [lenis, scrollY])
 
   // Transform values based on Lenis scroll
-  const top = useTransform(scrollY, [0, 32], [32, 0])
-  const leftRight = useTransform(scrollY, [0, 120], ["calc(50vw - 400px)", "0px"])
-  const borderRadius = useTransform(scrollY, [0, 80], [9999, 0])
-  const width = useTransform(scrollY, [0, 120], [800, "100vw"])
-  const paddingX = useTransform(scrollY, [32, 120], [16, 32])
-  const shadowOpacity = useTransform(scrollY, [0, 32], [0.15, 0])
+  const top = useTransform(scrollY, [0, SCROLL_THRESHOLD_BASIC], [INITIAL_TOP_OFFSET, 0])
+  const leftRight = useTransform(scrollY, [0, SCROLL_THRESHOLD_FULL], ["calc(50vw - 400px)", "0px"])
+  const borderRadius = useTransform(scrollY, [0, SCROLL_THRESHOLD_EXTENDED], [MAX_BORDER_RADIUS, 0])
+  const width = useTransform(scrollY, [0, SCROLL_THRESHOLD_FULL], [INITIAL_WIDTH, "100vw"])
+  const paddingX = useTransform(
+    scrollY,
+    [SCROLL_THRESHOLD_BASIC, SCROLL_THRESHOLD_FULL],
+    [INITIAL_PADDING, FINAL_PADDING],
+  )
+  const shadowOpacity = useTransform(scrollY, [0, SCROLL_THRESHOLD_BASIC], [SHADOW_OPACITY, 0])
   const boxShadow = useTransform(shadowOpacity, (opacity) => `0 8px 32px rgba(0, 0, 0, ${opacity})`)
 
   return (

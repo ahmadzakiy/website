@@ -4,6 +4,15 @@ import Image from "next/image"
 import Float from "../fancy/components/blocks/float"
 import ScrambleLink from "./scramble-link"
 
+// Float animation constants
+const FLOAT_AMPLITUDE_X = 5
+const FLOAT_AMPLITUDE_Y = 10
+const FLOAT_AMPLITUDE_Z = 10
+const FLOAT_ROTATION_X = 5
+const FLOAT_ROTATION_Y = 5
+const FLOAT_ROTATION_Z = 10
+const FLOAT_SPEED = 3
+
 export default function Footer() {
   return (
     <div className="relative mb-16 flex h-16 w-full items-center justify-center px-8 sm:mt-16 sm:mb-4">
@@ -19,7 +28,11 @@ export default function Footer() {
             text="Vibe coding"
           />
           <div className="-right-10 invisible absolute bottom-10 z-10 group-hover/item:visible">
-            <Float amplitude={[5, 10, 10]} rotationRange={[5, 5, 10]} speed={3}>
+            <Float
+              amplitude={[FLOAT_AMPLITUDE_X, FLOAT_AMPLITUDE_Y, FLOAT_AMPLITUDE_Z]}
+              rotationRange={[FLOAT_ROTATION_X, FLOAT_ROTATION_Y, FLOAT_ROTATION_Z]}
+              speed={FLOAT_SPEED}
+            >
               <div className="relative h-32 w-32 cursor-zoom-in overflow-hidden rounded-full shadow-2xl transition-transform duration-200 hover:scale-105 sm:h-40 sm:w-40 md:h-48 md:w-48">
                 <Image
                   alt="Ahmad Zakiy"

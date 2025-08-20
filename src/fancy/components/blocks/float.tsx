@@ -6,6 +6,24 @@ import { useRef } from "react"
 
 import { cn } from "@/lib/utils"
 
+// Animation constants
+const DEFAULT_SPEED = 0.5
+const DEFAULT_AMPLITUDE_X = 10
+const DEFAULT_AMPLITUDE_Y = 30
+const DEFAULT_AMPLITUDE_Z = 30
+const DEFAULT_ROTATION_X = 15
+const DEFAULT_ROTATION_Y = 15
+const DEFAULT_ROTATION_Z = 7.5
+
+// Animation frequency multipliers for different axes
+const TIME_MULTIPLIER = 0.02
+const MOTION_FREQ_X = 0.7
+const MOTION_FREQ_Y = 0.6
+const MOTION_FREQ_Z = 0.5
+const ROTATION_FREQ_X = 0.5
+const ROTATION_FREQ_Y = 0.4
+const ROTATION_FREQ_Z = 0.3
+
 type FloatProps = {
   children: React.ReactNode
   speed?: number
@@ -17,9 +35,9 @@ type FloatProps = {
 
 const Float: React.FC<FloatProps> = ({
   children,
-  speed = 0.5,
-  amplitude = [10, 30, 30], // Default [x, y, z] amplitudes
-  rotationRange = [15, 15, 7.5], // Default [x, y, z] rotation ranges
+  speed = DEFAULT_SPEED,
+  amplitude = [DEFAULT_AMPLITUDE_X, DEFAULT_AMPLITUDE_Y, DEFAULT_AMPLITUDE_Z], // Default [x, y, z] amplitudes
+  rotationRange = [DEFAULT_ROTATION_X, DEFAULT_ROTATION_Y, DEFAULT_ROTATION_Z], // Default [x, y, z] rotation ranges
   timeOffset = 0,
   className,
 }) => {
@@ -34,17 +52,17 @@ const Float: React.FC<FloatProps> = ({
   const time = useRef(0)
 
   useAnimationFrame(() => {
-    time.current += speed * 0.02
+    time.current += speed * TIME_MULTIPLIER
 
     // Smooth floating motion on all axes
-    const newX = Math.sin(time.current * 0.7 + timeOffset) * amplitude[0]
-    const newY = Math.sin(time.current * 0.6 + timeOffset) * amplitude[1]
-    const newZ = Math.sin(time.current * 0.5 + timeOffset) * amplitude[2]
+    const newX = Math.sin(time.current * MOTION_FREQ_X + timeOffset) * amplitude[0]
+    const newY = Math.sin(time.current * MOTION_FREQ_Y + timeOffset) * amplitude[1]
+    const newZ = Math.sin(time.current * MOTION_FREQ_Z + timeOffset) * amplitude[2]
 
     // 3D rotations with different frequencies for more organic movement
-    const newRotateX = Math.sin(time.current * 0.5 + timeOffset) * rotationRange[0]
-    const newRotateY = Math.sin(time.current * 0.4 + timeOffset) * rotationRange[1]
-    const newRotateZ = Math.sin(time.current * 0.3 + timeOffset) * rotationRange[2]
+    const newRotateX = Math.sin(time.current * ROTATION_FREQ_X + timeOffset) * rotationRange[0]
+    const newRotateY = Math.sin(time.current * ROTATION_FREQ_Y + timeOffset) * rotationRange[1]
+    const newRotateZ = Math.sin(time.current * ROTATION_FREQ_Z + timeOffset) * rotationRange[2]
 
     x.set(newX)
     y.set(newY)

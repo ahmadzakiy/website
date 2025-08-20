@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react"
 import ScrambleText from "@/components/scramble-text"
 
+// Time update constants
+const TIME_UPDATE_INTERVAL = 1000 // Update every second
+const INITIAL_LOADING_DELAY = 1000 // Initial loading delay
+
 export function useJakartaTime() {
   const [time, setTime] = useState("...")
 
@@ -23,7 +27,7 @@ export function useJakartaTime() {
     updateTime()
 
     // Update every second
-    const interval = setInterval(updateTime, 1000)
+    const interval = setInterval(updateTime, TIME_UPDATE_INTERVAL)
 
     return () => clearInterval(interval)
   }, [])
@@ -39,7 +43,7 @@ export default function JakartaClock() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, INITIAL_LOADING_DELAY)
 
     return () => clearTimeout(timer)
   }, [])
