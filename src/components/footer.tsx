@@ -7,10 +7,10 @@ import ScrambleLink from "./scramble-link"
 export default function Footer() {
   return (
     <div className="relative mb-16 flex h-16 w-full items-center justify-center px-8 sm:mt-16 sm:mb-4">
-      <div className=" text-center text-slate-700 text-xs sm:text-lg dark:text-slate-300">
+      <div className="text-center text-slate-700 text-xs sm:text-lg dark:text-slate-300">
         © {new Date().getFullYear()} Ahmad Zakiy. All rights reserved. Built
         with{" "}
-        <span className="group/item relative cursor-pointer ">
+        <span className="group/item relative cursor-pointer">
           <ScrambleLink
             className="text-slate-700 text-xs sm:text-lg dark:text-slate-300"
             href="https://en.wikipedia.org/wiki/Vibe_coding"
