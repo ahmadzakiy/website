@@ -23,7 +23,7 @@ async function NotesSection() {
           <h2 className="sm:-left-20 sm:-top-24 -top-10 -left-10 absolute font-serif text-8xl text-gray-600 opacity-10 sm:text-[200px] dark:text-gray-300">
             {section.title}
           </h2>
-          <ol className="flex flex-col gap-1 sm:text-lg">
+          <ol className="z-10 flex flex-col gap-1 sm:text-lg">
             {section.data.map((item, index: number) => (
               <li key={item.id}>
                 <ScrambleLink
