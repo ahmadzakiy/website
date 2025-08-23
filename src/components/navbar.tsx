@@ -15,9 +15,11 @@ const SCROLL_THRESHOLD_EXTENDED = 80
 const SCROLL_THRESHOLD_FULL = 120
 const MAX_BORDER_RADIUS = 9999
 const INITIAL_WIDTH = 800
-const INITIAL_PADDING = 16
+const INITIAL_PADDING = 12
 const FINAL_PADDING = 32
 const SHADOW_OPACITY = 0.15
+const MOBILE_BREAKPOINT = 640
+const MOBILE_HORIZONTAL_PADDING = 16
 
 export default function Navbar() {
   const lenis = useLenis()
@@ -40,6 +42,11 @@ export default function Navbar() {
   // Transform values based on Lenis scroll
   const top = useTransform(scrollY, [0, SCROLL_THRESHOLD_BASIC], [INITIAL_TOP_OFFSET, 0])
   const leftRight = useTransform(scrollY, [0, SCROLL_THRESHOLD_FULL], ["calc(50vw - 400px)", "0px"])
+  const mobileLeftRight = useTransform(
+    scrollY,
+    [0, SCROLL_THRESHOLD_FULL],
+    [MOBILE_HORIZONTAL_PADDING, 0],
+  )
   const borderRadius = useTransform(scrollY, [0, SCROLL_THRESHOLD_EXTENDED], [MAX_BORDER_RADIUS, 0])
   const width = useTransform(scrollY, [0, SCROLL_THRESHOLD_FULL], [INITIAL_WIDTH, "100vw"])
   const paddingX = useTransform(
@@ -55,8 +62,14 @@ export default function Navbar() {
       className="fixed z-50 border border-white/20 bg-white/70 backdrop-blur-sm dark:border-white/10 dark:bg-black/70"
       style={{
         top,
-        left: leftRight,
-        right: leftRight,
+        left:
+          typeof window !== "undefined" && window.innerWidth >= MOBILE_BREAKPOINT
+            ? leftRight
+            : mobileLeftRight,
+        right:
+          typeof window !== "undefined" && window.innerWidth >= MOBILE_BREAKPOINT
+            ? leftRight
+            : mobileLeftRight,
         borderRadius,
         width,
         boxShadow,
