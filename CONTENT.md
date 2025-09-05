@@ -32,7 +32,7 @@ He's based in Jakarta, where it's currently 00:00:00.
 - https://bandcamp.com/zakiy
 
 ## Contact
-Email: zakiy@example.com
+Email: in.zakiy@gmail.com
 LinkedIn: ahmadzakiy
 GitHub: ahmadzakiy
 
@@ -44,51 +44,9 @@ GitHub: ahmadzakiy
 # Notes
 ## Articles
 - https://about.google/company-info/philosophy/
-- https://a16z.com/why-software-is-eating-the-world/
-- https://theplayerstribune.com/articles/kuroky-dota2-the-international
-- https://oreilly.com/library/view/what-is-the/9781492072973/ch01.html
-- https://ethereum.org/en/web3/
-- https://web.dev/articles/howbrowserswork
-- https://react.dev/learn/thinking-in-react
-- https://bradfrost.com/blog/post/css-architecture-for-design-systems/
-- https://adamwathan.me/css-utility-classes-and-separation-of-concerns/
-- https://www.nngroup.com/articles/ten-usability-heuristics/
-- https://www.canva.com/learn/design-elements-principles/
-- https://spotify.design/article/the-paradox-of-design-systems
-- https://tobiasahlin.com/blog/meaningful-motion-w-action-driven-animation/
-- https://overreacted.io/the-elements-of-ui-engineering/
-- https://daneden.me/blog/2020/anatomy-of-a-typed-react-component
-- https://svelte.dev/blog/frameworks-without-the-framework
-- https://3perf.com/talks/web-perf-101/
-- https://www.jantakacs.com/the-story-of-figma-living-long-enough-as-a-hero-to-become-a-villain
-- https://dev.to/emmabostian/ux-engineering-3hem
-- https://leerob.com/product-engineers
-- https://leerob.com/ai
-- https://substack.com/home/post/p-164288010
-- https://javascriptpatterns.vercel.app/patterns/design-patterns/introduction
-- https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example
-- https://pudding.cool/2018/02/waveforms/
-- https://yuanqing.github.io/create-figma-plugin/
-- https://www.dwinawan.com/basic-introduction
-- https://cognition.ai/blog/dont-build-multi-agents
-- https://ui.dev/why-react-query
 
 ## Websites
-- https://nissan-global.com/EN/HERITAGE_COLLECTION/skyline.html
-- https://sony.com/en/SonyInfo/design/gallery/
-- https://casio.com/intl/watches/casio/standard/vintage/
 - https://lawsofux.com/
 
 ## Software
-- Vscode
-- Notion
-- Figma
-- n8n
-- https://excalidraw.com/
-- https://www.tldraw.com
-- https://jsoncrack.com/editor
-- https://transform.tools/
-- https://layout.bradwoods.io/
-- https://designsystems.surf/design-systems
-- https://carbondesignsystem.com/
-- https://polaris-react.shopify.com/
+- https://www.tailwindcss.com/

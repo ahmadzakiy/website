@@ -11,8 +11,8 @@ export default function NotesPage() {
         email me at{" "}
         <ScrambleLink
           className="font-bold sm:text-base"
-          href="mailto:in.zakiy@example.com"
-          text="in.zakiy@example.com"
+          href="mailto:in.zakiy@gmail.com"
+          text="in.zakiy@gmail.com"
         />{" "}
         for projects, or just for a cup of coffee.
       </p>
