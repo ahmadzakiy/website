@@ -33,6 +33,8 @@ export interface NoteWithCategory extends Note {
 }
 
 export async function getAllNotesGroupedByCategory() {
+  // biome-ignore lint: Debug logging for database operations
+  console.log("Fetching notes from Supabase...")
   // First, fetch categories from Supabase
   const { data: categoriesData, error: categoriesError } = await supabase
     .from("categories")
