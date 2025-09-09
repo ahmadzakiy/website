@@ -5,7 +5,8 @@ import ScrambleText from "@/components/scramble-text"
 import SectionSkeleton from "@/components/section-skeleton"
 import { getAllNotesGroupedByCategory } from "@/lib/supabase"
 
-// Notes section component
+export const revalidate = 0 // Make this page dynamic, no caching
+
 async function NotesSection() {
   const notesData = await getAllNotesGroupedByCategory()
 
