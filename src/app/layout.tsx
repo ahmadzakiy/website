@@ -5,6 +5,7 @@ import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import "./globals.css"
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
@@ -54,6 +55,7 @@ export default function RootLayout({
           "relative z-10",
         )}
       >
+        <SpeedInsights />
         <ReactLenis root />
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
           <Navbar />
