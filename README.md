@@ -8,11 +8,15 @@ First, set up your environment variables by creating a `.env.local` file:
 cp .env.local.template .env.local
 ```
 
-Edit `.env.local` and add your Supabase credentials:
+Edit `.env.local` and add your credentials:
 
 ```env
+# Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+
+# Google Analytics (optional)
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
 Then, run the development server:
@@ -37,6 +41,17 @@ This project uses Supabase as the database for storing notes/links data. The dat
 1. Create a new Supabase project
 2. Run the SQL commands from `supabase-setup.sql` in your Supabase SQL editor
 3. Copy your project URL and anon key to `.env.local`
+
+## Google Analytics Setup
+
+This project includes Google Analytics integration for tracking website usage:
+
+1. Go to [Google Analytics](https://analytics.google.com/)
+2. Create a new property or use an existing one
+3. Get your Measurement ID (format: `G-XXXXXXXXXX`)
+4. Add it to your `.env.local` file as `NEXT_PUBLIC_GA_ID`
+
+The analytics will only be active in production builds to avoid tracking development data.
 
 ## Project Architecture
 
