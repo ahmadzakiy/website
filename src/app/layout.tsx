@@ -1,7 +1,7 @@
+import { GoogleTagManager } from "@next/third-parties/google"
 import { ReactLenis } from "lenis/react"
 import type { Metadata } from "next"
 import { Geist_Mono, Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google"
-import Analytics from "@/components/analytics"
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import "./globals.css"
@@ -56,7 +56,9 @@ export default function RootLayout({
           "relative z-10",
         )}
       >
-        <Analytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
         <SpeedInsights />
         <ReactLenis root />
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
