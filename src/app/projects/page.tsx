@@ -6,7 +6,7 @@ const data = [
     title: "Dota Wrapped",
     description:
       "A Dota 2 stats app that'll tell you exactly how many hours you've wasted feeding mid lane and why your friends stopped playing with you. It's like Spotify Wrapped, but instead of your questionable music taste, it exposes your questionable item builds and that time you went 0/15/2 as carry.",
-    url: "https://dota.ahmadzakiy.com",
+    url: "https://dotawrapped.com",
   },
 ]
 

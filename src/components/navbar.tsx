@@ -59,7 +59,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed z-50 border border-white/20 bg-white/70 backdrop-blur-sm dark:border-white/10 dark:bg-black/70"
+      className="fixed z-50 bg-white/70 backdrop-blur-sm dark:bg-black/70"
       style={{
         top,
         left:
