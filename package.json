@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "biome lint --write",
     "format": "biome format --write",
-    "open-next:build": "opennextjs-cloudflare build",
+    "build:worker": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
