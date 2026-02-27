@@ -11,6 +11,9 @@ importers:
       '@next/third-parties':
         specifier: ^15.5.4
         version: 15.5.4(next@15.5.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      '@opennextjs/cloudflare':
+        specifier: ^1.17.1
+        version: 1.17.1(next@15.5.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.69.0)
       '@supabase/supabase-js':
         specifier: ^2.53.0
         version: 2.53.0
@@ -57,9 +60,6 @@ importers:
       '@biomejs/biome':
         specifier: 2.2.0
         version: 2.2.0
-      '@opennextjs/cloudflare':
-        specifier: ^1.17.1
-        version: 1.17.1(next@15.5.12(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(wrangler@4.69.0)
       '@types/lodash':
         specifier: ^4.17.20
         version: 4.17.20

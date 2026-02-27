@@ -1,19 +1,21 @@
 {
-  "name": "zakiy.dev",
+  "name": "website",
   "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev --port 9000",
-    "build:next": "next build",
-    "build": "opennextjs-cloudflare build",
+    "build": "next build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "biome lint --write",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.4",
+    "@opennextjs/cloudflare": "^1.17.1",
     "@supabase/supabase-js": "^2.53.0",
     "@tailwindcss/postcss": "^4.0.9",
     "class-variance-authority": "^0.7.1",
