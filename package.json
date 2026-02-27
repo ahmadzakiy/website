@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 9000",
-    "build": "next build",
+    "build:next": "next build",
+    "build": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
