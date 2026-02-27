@@ -1,7 +1,9 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  // Next.js configuration options go here
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig

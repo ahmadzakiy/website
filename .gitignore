@@ -35,3 +35,7 @@ Thumbs.db
 # Miscellaneous
 *.lock
 *.cache
+
+## CF
+.wrangler/
+.open-next/

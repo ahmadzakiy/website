@@ -18,11 +18,11 @@ async function getBuildInfo(): Promise<BuildInfo> {
   return {
     version: pkg.version,
     buildTime: new Date().toISOString(),
-    nodeVersion: process.version,
+    nodeVersion: "N/A",
     nextVersion: pkg.dependencies.next,
     environment: process.env.NODE_ENV || "development",
-    gitCommit: process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
-    deploymentUrl: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined,
+    gitCommit: process.env.CF_PAGES_COMMIT_SHA,
+    deploymentUrl: process.env.CF_PAGES_URL,
   }
 }
 

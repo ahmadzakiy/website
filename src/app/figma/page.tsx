@@ -7,7 +7,7 @@ export default function FigmaPage() {
         <ScrambleText
           maxIterations={15}
           scrambleSpeed={50}
-          text="Figma Design System Integration"
+          text="Figma Design System Integration v2"
         />
       </h1>
     </div>
