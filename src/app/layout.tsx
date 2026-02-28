@@ -44,9 +44,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link href="/sijaki.jpg" rel="icon" type="image/jpeg" />
-      </head>
       <body
         className={cn(
           interSans.variable,
