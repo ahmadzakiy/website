@@ -1,5 +1,27 @@
 # Ahmad Zakiy's Personal Website - AI Agent Instructions
 
+## AI Tooling Context
+
+> **This file is for OpenAI Codex CLI and other agents** that follow the `AGENTS.md` convention.
+> It is intentionally separate from `.github/copilot-instructions.md` (used by GitHub Copilot)
+> and `.agents/skills/` (on-demand skill modules loaded by any agent).
+> All three files must be kept in sync when project conventions change.
+
+| File | Read by |
+|---|---|
+| `AGENTS.md` | OpenAI Codex CLI & other agents |
+| `.github/copilot-instructions.md` | GitHub Copilot |
+| `.agents/skills/` | Any agent (loaded on demand) |
+
+### Available Skills
+
+Skills in `.agents/skills/` are loaded on demand — agents should read the `SKILL.md` entry point for each skill before using it:
+
+| Skill | Trigger |
+|---|---|
+| `vercel-react-best-practices` | Writing, reviewing, or refactoring React/Next.js code |
+| `web-design-guidelines` | Reviewing UI, accessibility audits, design/UX checks |
+
 ## Project Overview
 
 This is a Next.js 15 personal portfolio/blog site with a unique component architecture, built with modern web technologies and strict code quality standards.

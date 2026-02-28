@@ -4,6 +4,19 @@ globs: "**/*.{ts,tsx,js,jsx}"
 alwaysApply: true
 ---
 
+## AI Tooling Context
+
+> **This file is exclusively for GitHub Copilot** (VS Code, github.com, Copilot CLI).
+> It is intentionally separate from `AGENTS.md` (used by OpenAI Codex CLI and other agents)
+> and `.agents/skills/` (on-demand skill modules loaded by any agent).
+> All three files must be kept in sync when project conventions change.
+
+| File | Read by |
+|---|---|
+| `.github/copilot-instructions.md` | GitHub Copilot |
+| `AGENTS.md` | OpenAI Codex CLI & other agents |
+| `.agents/skills/` | Any agent (loaded on demand) |
+
 ## Project Architecture & Patterns
 
 This is a Next.js 15 personal portfolio/blog site using App Router with a unique component architecture:
