@@ -6,7 +6,13 @@ const data = [
     title: "Dota Wrapped",
     description:
       "A Dota 2 stats app that'll tell you exactly how many hours you've wasted feeding mid lane and why your friends stopped playing with you. It's like Spotify Wrapped, but instead of your questionable music taste, it exposes your questionable item builds and that time you went 0/15/2 as carry.",
-    url: "https://dotawrapped.com",
+    url: "https://dota-wrapped.zakiy.dev/",
+  },
+  {
+    title: "Razzil",
+    description:
+      "A simple AI chat app, similar to ChatGPT, where you can talk to different models in one place. Built to feel fast and natural, so writing, brainstorming, and daily problem-solving stay smooth.",
+    url: "https://razzil.zakiy.dev/",
   },
 ]
 
