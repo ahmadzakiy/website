@@ -15,7 +15,7 @@ export default function Home() {
               className="hero-avatar"
               height={30}
               priority
-              src="/sijaki.jpg"
+              src="/zakiy.png"
               unoptimized
               width={30}
             />

@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   description:
     "Design Engineer at Mekari, shaping Pixel Design System and building MCP tooling for AI agents.",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/zakiy.png",
+    apple: "/zakiy.png",
   },
 }
 

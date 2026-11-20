@@ -61,7 +61,7 @@ export default function Navbar() {
             className="site-avatar"
             height={32}
             priority
-            src="/sijaki.jpg"
+            src="/zakiy.png"
             unoptimized
             width={32}
           />
