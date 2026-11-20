@@ -1,5 +1,3 @@
-import ScrambleText from "@/components/scramble-text"
-
 const GIT_COMMIT_SLICE_LENGTH = 8
 
 type BuildInfo = {
@@ -69,10 +67,13 @@ export default async function HealthPage() {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
+    <main
+      className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36"
+      id="main-content"
+    >
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-2xl text-black leading-tight sm:text-4xl dark:text-white">
-          <ScrambleText maxIterations={15} scrambleSpeed={50} text="Health Check" />
+          Health Check
         </h1>
         <StatusIndicator status={status} />
       </div>
@@ -126,6 +127,6 @@ export default async function HealthPage() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

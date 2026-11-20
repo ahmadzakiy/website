@@ -1,21 +1,44 @@
-import ScrambleLink from "@/components/scramble-link"
-import ScrambleText from "@/components/scramble-text"
+import { ArrowUpRight, Mail } from "lucide-react"
+import type { Metadata } from "next"
+import Link from "next/link"
 
-export default function NotesPage() {
+export const metadata: Metadata = { title: "Contact — Ahmad Zakiy" }
+
+export default function LinksPage() {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
-      <h1 className="text-2xl text-black leading-tight sm:text-4xl dark:text-white">
-        <ScrambleText maxIterations={15} scrambleSpeed={50} text="Links" />
-      </h1>
-      <p>
-        email me at{" "}
-        <ScrambleLink
-          className="font-bold sm:text-base"
-          href="mailto:in.zakiy@gmail.com"
-          text="in.zakiy@gmail.com"
-        />{" "}
-        for projects, or just for a cup of coffee.
-      </p>
-    </div>
+    <main className="contact-page interior-page page-width" id="main-content">
+      <header className="page-intro">
+        <p className="eyebrow">Good things start with a hello.</p>
+        <h1>
+          Let’s make
+          <br />
+          <span>something click.</span>
+        </h1>
+        <p>
+          For design systems, interesting projects,
+          <br className="desktop-break" /> or just a cup of coffee.
+        </p>
+      </header>
+      <a className="contact-email" href="mailto:in.zakiy@gmail.com">
+        <span className="contact-mail-icon">
+          <Mail aria-hidden="true" size={24} strokeWidth={1.5} />
+        </span>
+        <span>
+          <span className="eyebrow">Drop me a line</span>
+          <strong>in.zakiy@gmail.com</strong>
+        </span>
+        <ArrowUpRight aria-hidden="true" size={24} />
+      </a>
+      <div className="contact-aside">
+        <p>
+          Based in Jakarta, Indonesia.
+          <br />
+          Usually somewhere between Figma and a code editor.
+        </p>
+        <Link className="text-link" href="/projects">
+          See what I’ve been making <ArrowUpRight aria-hidden="true" size={17} />
+        </Link>
+      </div>
+    </main>
   )
 }

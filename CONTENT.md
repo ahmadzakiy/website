@@ -2,11 +2,11 @@
 
 ## Meta
 > title: Ahmad Zakiy
-> description: Ahmad Zakiy is a UX Engineer at sass company based in Jakarta
+> description: Ahmad Zakiy is a Design Engineer at sass company based in Jakarta
 
 # Homepage
 ## About
-Ahmad Zakiy is UX Engineer at Mekari, focused on building and scaling Design Systems that help teams craft better interfaces.
+Ahmad Zakiy is Design Engineer at Mekari, focused on building and scaling Design Systems that help teams craft better interfaces.
 
 When he's not designing and coding, he's listening to hardcore/punk, thinking and exploring the world of AI.
 

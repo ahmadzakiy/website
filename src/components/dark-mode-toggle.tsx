@@ -1,52 +1,23 @@
 "use client"
 
-import { Moon, Settings, Sun } from "lucide-react"
+import { Monitor, Moon, Sun } from "lucide-react"
 import { useTheme } from "./theme-provider"
+
+const nextTheme = { system: "light", light: "dark", dark: "system" } as const
 
 export function DarkModeToggle() {
   const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark")
-    } else if (theme === "dark") {
-      setTheme("system")
-    } else {
-      setTheme("light")
-    }
-  }
-
-  const getThemeIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun />
-      case "dark":
-        return <Moon />
-      case "system":
-        return <Settings />
-      default:
-        return <Settings />
-    }
-  }
-
-  const getNextTheme = () => {
-    if (theme === "light") {
-      return "dark"
-    }
-    if (theme === "dark") {
-      return "system"
-    }
-    return "light"
-  }
-
+  const next = nextTheme[theme]
   return (
     <button
-      aria-label={`Switch to ${getNextTheme()} mode`}
-      className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-background/80 backdrop-blur-sm transition-colors hover:bg-background"
-      onClick={toggleTheme}
+      aria-label={`Theme: ${theme}. Switch to ${next} mode`}
+      className="theme-toggle"
+      onClick={() => setTheme(next)}
       type="button"
     >
-      <span className="text-lg">{getThemeIcon()}</span>
+      {theme === "system" ? <Monitor aria-hidden="true" size={17} /> : null}
+      {theme === "light" ? <Sun aria-hidden="true" size={17} /> : null}
+      {theme === "dark" ? <Moon aria-hidden="true" size={17} /> : null}
     </button>
   )
 }

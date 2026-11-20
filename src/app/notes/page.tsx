@@ -1,41 +1,50 @@
+import { ArrowUpRight } from "lucide-react"
+import type { Metadata } from "next"
 import { Suspense } from "react"
-import ErrorBoundary from "@/components/error-boundary"
-import ScrambleLink from "@/components/scramble-link"
-import ScrambleText from "@/components/scramble-text"
-import SectionSkeleton from "@/components/section-skeleton"
 import { getAllNotesGroupedByCategory } from "@/lib/supabase"
 
-export const revalidate = 0 // Make this page dynamic, no caching
+export const revalidate = 0
+export const metadata: Metadata = { title: "Notes — Ahmad Zakiy" }
 
-async function NotesSection() {
-  const notesData = await getAllNotesGroupedByCategory()
+const categories = [
+  { key: "articles", title: "Articles", description: "Ideas worth another read." },
+  { key: "websites", title: "Websites", description: "The internet, at its best." },
+  { key: "tools", title: "Tools", description: "A few helpful things." },
+] as const
 
-  // Define sections configuration
-  const sections = [
-    { key: "articles", title: "articles", data: notesData.articles },
-    { key: "websites", title: "websites", data: notesData.websites },
-    { key: "tools", title: "tools", data: notesData.tools },
-  ] as const
-
+async function NotesCollection() {
+  const notes = await getAllNotesGroupedByCategory()
   return (
-    <div className="flex w-full flex-col gap-8 sm:mt-16 sm:w-[800px] sm:gap-28">
-      {sections.map((section) => (
-        <section className="relative flex flex-col gap-4" key={section.key}>
-          <h2 className="sm:-left-20 sm:-top-24 -top-10 -left-10 absolute font-serif text-8xl text-gray-600 opacity-10 sm:text-[200px] dark:text-gray-300">
-            {section.title}
-          </h2>
-          <ol className="z-10 flex flex-col gap-1 sm:text-lg">
-            {section.data.map((item, index: number) => (
-              <li key={item.id}>
-                <ScrambleLink
-                  href={item.href}
-                  rel="noopener"
-                  target="_blank"
-                  text={`${index + 1}. ${item.title}`}
-                />
-              </li>
-            ))}
-          </ol>
+    <div className="notes-collection">
+      {categories.map((category) => (
+        <section
+          aria-labelledby={`${category.key}-title`}
+          className="notes-category"
+          id={category.key}
+          key={category.key}
+        >
+          <div className="notes-category-heading">
+            <div>
+              <h2 id={`${category.key}-title`}>{category.title}</h2>
+              <p>{category.description}</p>
+            </div>
+            <span className="category-count">{notes[category.key].length}</span>
+          </div>
+          {notes[category.key].length > 0 ? (
+            <ol className="note-list">
+              {notes[category.key].map((item) => (
+                <li key={item.id}>
+                  <a href={item.href} rel="noopener noreferrer" target="_blank">
+                    <span>{item.title}</span>
+                    <ArrowUpRight aria-hidden="true" size={18} />
+                    <span className="sr-only">Opens in a new tab</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="notes-empty">A little space for the next good find.</p>
+          )}
         </section>
       ))}
     </div>
@@ -44,24 +53,35 @@ async function NotesSection() {
 
 export default function NotesPage() {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-start gap-14 p-8 pt-32 sm:p-8 sm:pt-36">
-      <h1 className="text-2xl text-black leading-tight sm:text-4xl dark:text-white">
-        <ScrambleText maxIterations={15} scrambleSpeed={50} text="Notes" />
-      </h1>
-
+    <main className="interior-page page-width" id="main-content">
+      <header className="page-intro">
+        <p className="eyebrow">Collected along the way</p>
+        <h1>
+          A curious mind.
+          <br />
+          <span>An open notebook.</span>
+        </h1>
+        <p>
+          Articles, websites, and tools I keep coming back to.
+          <br className="desktop-break" /> Maybe you’ll find something good here, too.
+        </p>
+      </header>
       <Suspense
         fallback={
-          <div className="flex w-full flex-col gap-8 sm:w-[800px]">
-            <SectionSkeleton />
-            <SectionSkeleton />
-            <SectionSkeleton />
+          <div aria-busy="true" className="notes-loading">
+            <span className="sr-only">Loading notes</span>
+            {categories.map((category) => (
+              <div className="notes-loading-row" key={category.key}>
+                <span>{category.title}</span>
+                <div />
+                <div />
+              </div>
+            ))}
           </div>
         }
       >
-        <ErrorBoundary fallback="Unable to load notes from Supabase.">
-          <NotesSection />
-        </ErrorBoundary>
+        <NotesCollection />
       </Suspense>
-    </div>
+    </main>
   )
 }

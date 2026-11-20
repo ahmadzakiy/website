@@ -1,0 +1,33 @@
+.work-stress {
+  padding-block: 8rem 9rem;
+  min-height: 100dvh;
+}
+
+.work-stress-heading { margin-bottom: 2.5rem; }
+.work-stress-heading h1 { margin-top: 0.5rem; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.04em; }
+.work-stress-heading > p:last-of-type { max-width: 40rem; margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+.work-stress-options { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.25rem; font-size: 0.8125rem; }
+.work-stress-options label { display: flex; align-items: center; gap: 0.5rem; }
+.work-stress-options input { accent-color: var(--blue); }
+
+.stress-picker {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 2px;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 4px;
+  overflow: auto;
+  border: 1px solid #c4c4c8;
+  border-radius: 10px;
+  background: #e7e7ea;
+  color: #363639;
+  font: 12px/1.2 system-ui, sans-serif;
+}
+
+.stress-picker button { flex-shrink: 0; min-height: 36px; padding: 8px; border-radius: 6px; cursor: pointer; }
+.stress-picker button[aria-pressed="true"] { background: #fff; color: #171719; box-shadow: 0 1px 3px #0002; }

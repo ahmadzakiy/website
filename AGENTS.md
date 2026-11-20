@@ -1,5 +1,7 @@
 # Ahmad Zakiy's Personal Website - AI Agent Instructions
 
+Before building or changing UI, read [DESIGN.md](DESIGN.md).
+
 ## AI Tooling Context
 
 > **This file is for OpenAI Codex CLI and other agents** that follow the `AGENTS.md` convention.

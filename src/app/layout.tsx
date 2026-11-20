@@ -1,10 +1,10 @@
 import { GoogleTagManager } from "@next/third-parties/google"
-import { ReactLenis } from "lenis/react"
 import type { Metadata } from "next"
 import { Geist_Mono, Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google"
-import Footer from "@/components/footer"
-import Navbar from "@/components/navbar"
+import SiteShell from "@/components/site-shell"
+import SmoothScroll from "@/components/smooth-scroll"
 import "./globals.css"
+import "./portfolio.css"
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
@@ -30,7 +30,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ahmad Zakiy",
-  description: "Living a life shaped by bits rather than atoms",
+  description:
+    "Design Engineer at Mekari, shaping Pixel Design System and building MCP tooling for AI agents.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -55,11 +56,9 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
-        <ReactLenis root />
+        <SmoothScroll />
         <ThemeProvider defaultTheme="system" storageKey="website-theme">
-          <Navbar />
-          {children}
-          <Footer />
+          <SiteShell>{children}</SiteShell>
         </ThemeProvider>
       </body>
     </html>

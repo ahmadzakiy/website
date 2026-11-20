@@ -4,6 +4,8 @@ globs: "**/*.{ts,tsx,js,jsx}"
 alwaysApply: true
 ---
 
+Before building or changing UI, read [DESIGN.md](../DESIGN.md).
+
 ## AI Tooling Context
 
 > **This file is exclusively for GitHub Copilot** (VS Code, github.com, Copilot CLI).
