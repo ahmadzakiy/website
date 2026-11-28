@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "next dev --port 9000",
     "build": "next build",
-    "start": "next start",
-    "lint": "biome lint --write",
-    "format": "biome format --write",
     "build:worker": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
+    "start": "next start",
+    "lint": "biome lint --write",
+    "format": "biome format --write"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.4",
